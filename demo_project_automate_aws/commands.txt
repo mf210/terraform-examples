@@ -20,4 +20,8 @@
     4. Apply the changes:
         --> terraform plan
         --> terraform apply -auto-approve
-    
+
+5. Create Security Group for Firewall Configuration
+--> terraform plan
+--> terraform apply -auto-approve
+
