@@ -25,3 +25,6 @@
 --> terraform plan
 --> terraform apply -auto-approve
 
+6. Fetch Amazon Machine Image (AMI) for EC2 Instance
+--> terraform plan
+--> terraform apply -auto-approve
