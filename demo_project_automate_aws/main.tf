@@ -150,6 +150,17 @@ resource "aws_instance" "myapp-server" {
     associate_public_ip_address = true
     key_name = aws_key_pair.ssh-key.key_name
 
+    ### Configure EC2 Server to run entry script and run a Docker container
+    user_data = file("entry-script.sh")
+    # OR you can use:
+    # user_data = <<EOF
+    #                 #!/bin/bash
+    #                 sudo yum update -y && sudo yum install -y docker
+    #                 sudo systemctl start docker
+    #                 sudo usermode -aG docker ec2-user
+    #                 docker run -p 8080:80 nginx
+    #             EOF
+
     tags {
         Name: "${var.env_prefix}-server"
     }
