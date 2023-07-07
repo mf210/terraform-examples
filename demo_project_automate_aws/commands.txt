@@ -2,3 +2,6 @@
 --> terraform plan
 --> terraform apply -auto-approve
 
+2. Create Rout Table and Internet Gateway
+--> terraform plan
+--> terraform apply -auto-approve
