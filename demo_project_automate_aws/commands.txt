@@ -5,3 +5,7 @@
 2. Create Rout Table and Internet Gateway
 --> terraform plan
 --> terraform apply -auto-approve
+
+3. Associate Subnet with Route Table
+--> terraform plan
+--> terraform apply -auto-approve
