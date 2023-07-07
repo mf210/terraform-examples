@@ -1,0 +1,4 @@
+1. Create AWS VPC and Subnet:
+--> terraform plan
+--> terraform apply -auto-approve
+
