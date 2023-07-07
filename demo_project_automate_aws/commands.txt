@@ -9,3 +9,15 @@
 3. Associate Subnet with Route Table
 --> terraform plan
 --> terraform apply -auto-approve
+
+4. Use AWS Default Components Default Route Table
+    1. Comment or remove the "Create Rout Table & Associate Subnet with Route Table" section
+    2. apply the changes:
+        --> terraform apply -auto-approve
+    3. Write or uncomment the "Use AWS Default Components Default Route Table" section
+        >>> How I know to access the route table id in my VPC:
+            --> terraform state show aws_vpc.myapp-vpc
+    4. Apply the changes:
+        --> terraform plan
+        --> terraform apply -auto-approve
+    
