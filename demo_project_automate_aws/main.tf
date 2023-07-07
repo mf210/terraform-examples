@@ -8,6 +8,7 @@ variable avail_zone {}
 variable env_prefix {}
 variable my_ip {}
 variable instance_type {}
+variable public_key_location {}
 
 
 ### Create AWS VPC and Subnet
@@ -126,6 +127,14 @@ data "aws_ami" "latest-amazon-linux-image" {
 
 }
 
+### Create ssh key pair
+resource "aws_key_pair" "ssh-key" {
+    key_name = "server-key"
+    public_key = file(var.public_key_location)
+
+}
+### Create ssh key pair
+
 # output "aws_ami_id" {
 #     value = data.aws_ami.latest-amazon-linux-image.id
 # }
@@ -139,10 +148,14 @@ resource "aws_instance" "myapp-server" {
     availability_zone = var.avail_zone
 
     associate_public_ip_address = true
-    key_name = "SERVER-KEY-PAIR"
+    key_name = aws_key_pair.ssh-key.key_name
 
     tags {
         Name: "${var.env_prefix}-server"
     }
+}
+
+output "ec2_public_id" {
+    value = aws_instance.myapp-server.public_ip
 }
 ### Fetch Amazon Machine Image (AMI) for EC2 Instance
