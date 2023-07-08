@@ -1,0 +1,2 @@
+first you shoud create "S3" bucket in AWS then:
+--> terraform init
